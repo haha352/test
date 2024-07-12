@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script>
+        function validateForm(event) {
+            var password = document.getElementById('password').value;
+            if (password.length < 6) {
+                event.preventDefault();
+                document.getElementById('passwordError').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Register</h1>
+            <form action="/auth/register" method="post" onsubmit="validateForm(event)">
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input class="input" id="username" name="username" type="text" placeholder="Type your username...." required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" id="password" name="password" type="password" placeholder="Type your password...." required>
+                    </div>
+                    <p id="passwordError" class="help is-danger" style="display: none;">Password must be at least 6 characters long.</p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
